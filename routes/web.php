@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CustomersController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +30,11 @@ Route::group(['middleware' => 'admin'],function(){
     //admin
     
     Route::get('admin/dashboard',[DashboardController::class,'Dashboard']);
+
+
+    // Customers
+    Route::get('admin/customers',[CustomersController::class,'customers']);
+    Route::get('admin/customers/add',[CustomersController::class,'add_customers']);
     
     
     });
