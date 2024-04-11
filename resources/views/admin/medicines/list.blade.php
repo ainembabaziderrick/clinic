@@ -2,7 +2,7 @@
 
  @section('content')
 <div class="pagetitle">
-    <h1>Customers List</h1>
+    <h1>Medicines List</h1>
 </div>
 
 <section class="section">
@@ -12,17 +12,17 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
-                    <a href="{{ url('admin/customers/add')}}" class="btn btn-primary">Add New Customer</a>
+                    <a href="{{ url('admin/medicines/add')}}" class="btn btn-primary">Add New Medicine</a>
                      </h5>
+
                      <table class="table datatable">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Contact Number</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Doctor Name</th>
-                                <th scope="col">Doctor Address</th>
+                                <th scope="col">Medicine Name</th>
+                                <th scope="col">Packing</th>
+                                <th scope="col">Generic Name</th>
+                                <th scope="col">Supplier Name</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -32,16 +32,16 @@
                             <tr>
                             <th scope="row">{{$value->id}}</th>
                                 <td>{{$value->name}}</td>
-                                <td>{{$value->contact_number}}</td>
-                                <td>{{$value->address}}</td>
-                                <td>{{$value->doctor_name}}</td>
-                                <td>{{$value->doctor_address}}</td>
+                                <td>{{$value->packing}}</td>
+                                <td>{{$value->generic_name}}</td>
+                                <td>{{$value->supplier_name}}</td>
+        
                                 <td>{{ date('d-m-Y H:i:s',strtotime($value->created_at))}}</td>
 
                                 <td>
                                         <div class="btn-group">
-                                            <a href="{{url('admin/customers/edit/'.$value->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="{{url('admin/customers/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a>
+                                            <a href="{{url('admin/medicines/edit/'.$value->id)}}" class="btn btn-sm btn-primary">Edit</a>
+                                            <a href="{{url('admin/medicines/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a>
                                         </div>
                                     </td>
                                 
@@ -50,6 +50,7 @@
                         </tbody>
 
                      </table>
+                     
                 </div>
             </div>
         </div>
