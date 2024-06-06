@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('receptionist.receptionist_app')
 
  @section('content')
 <div class="pagetitle">
@@ -7,12 +7,12 @@
 
 <section class="section">
     <div class="row">
-        <div class="col-lg-24">
+        <div class="col-lg-12">
             @include('message')
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
-                    <a href="{{ url('admin/customers/add')}}" class="btn btn-primary">Add New Customer</a>
+                    <a href="{{ url('receptionist/customers/add')}}" class="btn btn-primary">Add New Customer</a>
                      </h5>
                      <table class="table datatable">
                         <thead>
@@ -21,7 +21,6 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Contact Number</th>
                                 <th scope="col">Address</th>
-                                <th scope="col">Attendant</th>
                                 <th scope="col">NOK Name</th>
                                 <th scope="col">NOK Contact</th>
                                 <th scope="col">NOK Address</th>
@@ -29,7 +28,7 @@
                                 <th scope="col">Arrival Date</th>
                                 <th scope="col">Reason of Visit</th>
                                 <th scope="col">Created At</th>
-                                <th scope="col">Action</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -40,7 +39,6 @@
                                 <td>{{$value->contact_number}}</td>
                                 <td>{{$value->address}}</td>
                                 
-                                <td>{{$value->attendant}}</td>
                                 <td>{{$value->nok_name}}</td>
                                 <td>{{$value->nok_contact}}</td>
                                 <td>{{$value->nok_address}}</td>
@@ -49,12 +47,7 @@
                                 <td>{{$value->reason}}</td>
                                 <td>{{ date('d-m-Y H:i:s',strtotime($value->created_at))}}</td>
 
-                                <td>
-                                        <div class="btn-group">
-                                            <a href="{{url('admin/customers/edit/'.$value->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                                            <a href="{{url('admin/customers/delete/'.$value->id)}}" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
+                               
                                 
                             </tr>
                             @endforeach

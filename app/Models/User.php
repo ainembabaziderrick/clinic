@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_role'
     ];
 
     /**
@@ -42,4 +43,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getProfileImage(){
+        if(!empty($this->profile_image) && file_exists('upload/profile/'.$this->profile_image)){
+           return url('upload/profile/'.$this->profile_image);
+           }
+    }
 }

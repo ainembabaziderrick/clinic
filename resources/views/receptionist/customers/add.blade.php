@@ -1,4 +1,5 @@
-@extends('admin.layouts.app')
+@extends('receptionist.receptionist_app')
+
 
  @section('content')
  <div class="pagetitle">
@@ -12,9 +13,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Customer</h5>
 
-                    <form action=" {{ url('admin/customers/add')}}" method="post" enctype="multipart/form-data">
+                    <form action=" {{ url('receptionist/customers/add')}}" method="post" enctype="multipart/form-data">
                         {{ csrf_field()}}
-
+                       
                         <div class="row mb-3">
                             <label class = "col-sm-2 col-form-label">Attendant Name <span style="color: red;"> *</span>
                             </label>

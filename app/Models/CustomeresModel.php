@@ -17,6 +17,21 @@ class CustomeresModel extends Model
         'address',
         'doctor_name',
         'doctor_address',
+        'attendant',
+        'nok_name',
+        'nok_contact',
+        'nok_address',
+        'time',
+        'date',
+        'reason',
+        'history',
+        'observation',
+        'emergency',
+        'investigation',
+        'emergency_treatment',
+        'results',
+        'impresion',
+        'prescription',
         
     ];
 }

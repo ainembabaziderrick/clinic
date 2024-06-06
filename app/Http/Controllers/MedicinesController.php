@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MedicinesModel;
+use App\Models\MedicinesStockModel;
 
 
 class MedicinesController extends Controller
@@ -55,5 +56,60 @@ class MedicinesController extends Controller
             $delete = MedicinesModel::find($id)->Delete();
             return Redirect()->back()->with('success','Medicine Deleted succcessfully');
          }
+
+         public function medicines_stock_list(){
+            $data['getRecord'] = MedicinesStockModel::get();
+            return view('admin.medicine_stock.list', $data);
+         }
+
+         public function add_medicines_stock(Request $request){
+            $data['getRecord'] = MedicinesModel::get();
+            return view('admin.medicine_stock.add', $data);
+        }
+
+        public function insert_add_medicines_stock(Request $request){
+            $save = new MedicinesStockModel;
+            $save->medicines_id = $request->medicines_id;
+            $save->batch_id = $request->batch_id;
+            $save->expiry_date = $request->expiry_date;
+            $save->quantity = $request->quantity;
+            $save->mrp = $request->mrp;
+            $save->rate = $request->rate;
+            
+            $save->save();
+    
+            return redirect('admin/medicines_stock')->with('success', 'Medicine Stock successfully created');
+            
+        }
+
+        public function EditMedicines_stock($id){
+            $data['getRecord'] = MedicinesModel::get();
+            $data['oldRecord'] = MedicinesStockModel::find($id);
+            return view('admin.medicine_stock.edit', $data);
+         
+         }
+
+         public function UpdateMedicines_stock(Request $request, $id){
+    
+            $update =   MedicinesStockModel::find($id)->update([
+                   'medicines_id' => $request->medicines_id,
+                   'batch_id' => $request->batch_id,
+                   'expiry_date' => $request->expiry_date,
+                   'quantity' => $request->quantity,
+                   'mrp' => $request->mrp,
+                   'rate' => $request->rate,
+                  
+                          
+               ]);
+               return redirect('admin/medicines_stock')->with('success','Medicine Stock Updated succcessfully');
+            
+            }
+
+            public function DeleteMedicines_stock($id){
+                $delete = MedicinesStockModel::find($id)->Delete();
+                return Redirect()->back()->with('success','Medicine Stock Deleted succcessfully');
+             }
+    
+    
   
 }
