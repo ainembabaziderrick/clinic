@@ -147,7 +147,37 @@ class CustomersController extends Controller
                 
                 }
     
-       
+         // dispenser
+
+         public function Dispensercustomers(Request $request){
+            $data['getRecord'] = CustomeresModel::get();
+            return view('dispenser.customers.list', $data);
+        }
+    
+        public function DispenserEditCustomer(Request $request){
+            return view('receptionist.customers.add');
+        }
+    
+        public function DispenserUpdateCustomer(Request $request){
+            $save = new CustomeresModel;
+            $save->name = trim($request->name);
+            $save->contact_number = trim($request->contact_number);
+            $save->address = trim($request->address);
+            $save->doctor_name = trim($request->doctor_name);
+            $save->doctor_address = trim($request->doctor_address);
+            $save->attendant = trim($request->attendant);
+            $save->nok_name = trim($request->nok_name);
+            $save->nok_contact = trim($request->nok_contact);
+            $save->nok_address = trim($request->nok_address);
+            $save->time = trim($request->time);
+            $save->date = trim($request->date);
+            $save->reason = trim($request->reason);
+            $save->save();
+    
+            return redirect('receptionist/customers')->with('success', 'Customer successfully created');
+            
+        }
+
         
            
 }

@@ -189,6 +189,13 @@ Route::group(['middleware' => 'dispenser'], function () {
     Route::get('dispenser/my_account', [DashboardController::class, 'my_account_list']);
     Route::post('dispenser/my_account', [DashboardController::class, 'update_my_account']);
 
+    // Customers
+    Route::get('dispenser/customers', [CustomersController::class, 'Dispensercustomers']);
+     
+    Route::get('/dispenser/customers/edit/{id}', [CustomersController::class, 'DispenserEditCustomer']);
+   Route::post('/dispenser/customers/update/{id}', [CustomersController::class, 'DispenserUpdateCustomer']);
+   
+
 
 
 

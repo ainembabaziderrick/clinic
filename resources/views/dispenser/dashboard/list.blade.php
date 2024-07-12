@@ -1,5 +1,5 @@
 
-@extends('admin.layouts.app')
+@extends('dispenser.dispenser')
 
  @section('content')
   

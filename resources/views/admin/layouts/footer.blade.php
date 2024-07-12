@@ -10,7 +10,7 @@
     </div>
     <div class="credits">
       
-      Designed by <a href="https://ainembabaziderrick.com/">Logic Business Solutions</a>
+      Designed by <a href="https://ainembabaziderrick.com/">Nahumuza Precious</a>
     </div>
   </footer>
   
